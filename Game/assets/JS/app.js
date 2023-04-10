@@ -58,7 +58,7 @@ function move(e) {
 
     if (rect.top == rect1.top ||
         rect.left == rect1.left ||
-        rect.bottom >= rect1.bottom ||
+        rect.bottom == rect1.bottom ||
         rect.right >= rect1.right) {
             const node = document.createElement("h1");
             const textnode = document.createTextNode("GAME OVER");

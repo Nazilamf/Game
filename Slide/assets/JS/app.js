@@ -5,8 +5,7 @@ let slideImages = [
     './assets/style/image/1.jpg',
     './assets/style/image/2.jpg',
     './assets/style/image/3.jpg',
-    './assets/style/image/4.jpg',
-    './assets/style/image/5.jpg'
+    './assets/style/image/4.jpg'
 ]
 
 
@@ -15,8 +14,7 @@ let image = document.querySelector('#slider img')
 let currentSlide = 0;
 image.setAttribute('src', slideImages[currentSlide])
 
-let dots = document.querySelectorAll('#slider .dots')
-
+let dots = document.querySelectorAll('#slider .dots .dot')
 
 let next = document.querySelector('.next')
 let prev = document.querySelector('.prev')
@@ -33,33 +31,7 @@ function Autoplay() {
 next.onclick = function () {
     Autoplay()
 
-    const dots = document.querySelector('#slider .dots');
-    if (slideImages.length > dots.childNodes.length) {
-        const dot = document.createElement('div');
-        dot.innerHTML = '<div> </div>'
-        dot.classList.add('dot')
-        dots.appendChild(dot);
-    }
 }
-
-
-for (var i = 0; i < dots.length; i++) {
-    (function(index){
-        dots[i].onclick = function () {
-            if (index !== currentSlide) {
-                document.querySelector('.dot .current').classList.remove('current');
-                this.classList.add('#slider .current');
-                document.querySelector('.active').classList.remove('.active');
-                slideImages[currentSlide].classList.add('.active');
-                currentSlide = index;
-            }
-        }
-    })(i)
-   
-}
-
-
-
 
 prev.onclick = function () {
     currentSlide--;
@@ -73,3 +45,24 @@ prev.onclick = function () {
 //     Autoplay()
 // }, 2000);
 
+
+
+function currentSlider(n) {
+    image.src = slideImages[n]
+  }
+
+function showSlides() {
+    let i;
+    let dots = document.querySelectorAll('#slider .dots .dot')
+   
+    for (i = 0; i < slideImages.length; i++) {
+        slideImages[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slideImages[currentSlide-1].style.display = "block";  
+    dots[currentSlide-1].className += " active";
+
+    
+  }
