@@ -1,0 +1,44 @@
+#slider {
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+  position: relative;
+}
+#slider img {
+  width: 100%;
+}
+#slider img .active {
+  display: none;
+}
+#slider .dots .dot {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(52, 44, 44);
+  margin-right: 10px;
+  margin-top: -30px;
+}
+#slider .dots .dot:hover {
+  background-color: rgb(91, 76, 76);
+  cursor: pointer;
+}
+#slider .dots .dot.curret {
+  background-color: bisque;
+}
+#slider .next {
+  right: 10%;
+}
+#slider .prev {
+  left: 10%;
+}
+
+.all, #slider .next, #slider .prev {
+  position: absolute;
+  top: 50%;
+  background-color: transparent;
+  border: none;
+  transform: translateY(-50%);
+  font-size: 30px;
+}
+.all:hover, #slider .next:hover, #slider .prev:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
